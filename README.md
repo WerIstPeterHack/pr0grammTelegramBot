@@ -1,5 +1,5 @@
 # pr0grammTelegramBot
-A Telegram-Bot that allows people to search the German image board pr0gramm.com for astonishing uploads and send them directly to the chat. 
+A Telegram-Bot that allows people to search the German image board pr0gramm.com for astonishing uploads and send them directly to the chat. The user can define several search terms as an inline query and the bot will respond to it with a list of results. The user can select a result for preview or directly send it to the chat. 
 
 # Installation
 
@@ -7,7 +7,7 @@ Use composer to install dependencies.
 
 *Important*
 
-If you want to use Botan an in order to protect your users privacy, you need to make changes to the Botan-Class. See the anonymize-paragraph below!
+If you want to use Botan for analysing the traffic and in order to protect your users privacy, you need to make changes to the Botan-Class. See the anonymize-paragraph below!
 
 # Set up the bot
 
@@ -22,6 +22,8 @@ Open your Telegram-client (desktop or smartphone will do it) and start the @BotF
 The 'name' of the bot is for internal use only. The 'username' is how the user will address the bot, it has to end with 'bot', for example foobarBot. Your reward will be a token like this:
 
     123123123:AHJASHDKJASDHASHDJASDAD
+
+In the bot-settings areas you may make sure, that the inline mode is enabled and groups are allowed. Anything else can remain unchanged. 
 
 Now open the manager.php and add the following information (i'll just quote the particular lines):
 
@@ -75,3 +77,15 @@ to
 		$uid = 0;
     
 That's all.
+
+# Bot features
+
+Currently, the bot only supports the SFW-area, because anything else requires a login-token. After connecting to the bot and running the initial /start-command, the user will receive a welcome notice. The /help-command describe the basic usage (in German). The following will search the Pr0gramm for the terms for hello world and result a grid of several images:
+
+     @prgrmmBot hello world
+
+If you particulary want to search for videos, you need to add +webm:
+
+     @prgrmmBot hello world
+     
+The result is a list of videos. The bot will send the selected item to the current chat, containing information about the uploader and the the vote-statistics. With clicking the image, the user will be redirected to the original post at pr0gramm.com
