@@ -1,6 +1,8 @@
 # pr0grammTelegramBot
 A Telegram-Bot that allows people to search the German image board pr0gramm.com for astonishing uploads and send them directly to the chat. The user can define several search terms as an inline query and the bot will respond to it with a list of results. The user can select a result for preview or directly send it to the chat. 
 
+The bot uses the great PHP-Telegram-Bot-Library from Longman: https://github.com/php-telegram-bot
+
 # Installation
 
 Use composer to install dependencies. 
