@@ -56,28 +56,20 @@ The webhook will be installed. You always can check it's status with:
 # Anonymize 
 The Botan-implementation usually collects usernames and userids and send them to Yandex. You can disable Botan at all or if you want to anonymize usage, make the following modifications to Botan.php. You may use this edits to create a fork. This is just a quick'n'dirty workaround.
 
-Look for the public static function track() and add
-		// ANONYMIZING STATS
-		if (isset($update->inline_query)) {
+Look for the public static function track() and the line
 
-			if (isset($update->inline_query['from'])) {
-
-				if (isset($update->inline_query['from']['id'])) {
-				
-					$update->inline_query['from']['id'] = '0';
-					$update->inline_query['from']['first_name'] = 'anon';
-					$update->raw_data['inline_query']['from']['id'] = '0';
-					$update->raw_data['inline_query']['from']['first_name'] = 'anon';
-						
-				}
-			}
-		}
-    
-after the inital error handling. Next, in the same function, look for the variable $uid and change from
 		$uid = isset($data['from']['id']) ? $data['from']['id'] : 0;
-to
+
+Uncomment this line and after it add the following:
+
 		$uid = 0;
-    
+				
+		$data['from']['id'] = 0;
+		$data['from']['first_name'] = 'anon';
+		$data['chat']['id'] = 0;
+		$data['chat']['first_name'] = 'anon';
+		$data['text'] = NULL;
+        
 That's all.
 
 # Bot features
