@@ -1,0 +1,23 @@
+{
+    "name": "TelegramBot for pr0gramm",
+    "type": "project",
+    "description": "PHP TelegramBot for pr0gramm",
+    "keywords": ["telegram", "bot", "pr0gramm"],
+    "license": "MIT",
+    "homepage": "https://github.com/WerIstPeterHack/pr0grammTelegramBot",
+    "support": {
+        "issues": "https://github.com/WerIstPeterHack/pr0grammTelegramBot/issues",
+        "source": "https://github.com/WerIstPeterHack/pr0grammTelegramBot"
+    },
+    "authors": [
+        {
+            "name": "Peter Hack",
+            "homepage": "https://github.com/WerIstPeterHack/pr0grammTelegramBot",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+		"php-telegram-bot/telegram-bot-manager": "^1.2",
+		"longman/telegram-bot": "0.52 as 0.45"
+    }
+}
